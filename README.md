@@ -11,6 +11,11 @@ perform some calculations, and then generates output. The program simulates plac
 
 I've also included the documentation I've been givin for the project and will later include my deliverables.
 
-## TODO
+## Given Documentation
+* Project1_CIS304.pdf - Outlines the scope of the project.   
+* Example_ClassDiagram.pdf - Outlines the recommended java class structure with methods.   
+* Example_ProjectSource.pdf - An example of the paper deliverable. We're basically expected to just replace "Homer Simpson" with our information.   
+
+### TODO
 * Actually complete project
 * Add Deliverables
