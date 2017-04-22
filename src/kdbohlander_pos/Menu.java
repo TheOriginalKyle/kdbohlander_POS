@@ -1,9 +1,12 @@
 package kdbohlander_pos;
 
+import java.util.Arrays;
+
 public class Menu
 {
 
     private Product menuItems[];
+    public Product Product;
 
     public Menu()
     {
@@ -41,10 +44,16 @@ public class Menu
     }
 
     //method to return an array of descriptions
+    int i = 0;
+
     public String[] getMenuDescriptions()
     {
         String menuDescription[] = new String[menuItems.length];
-
+        while (i < menuItems.length)
+        {
+            menuDescription[i] = menuItems[i].getDescription();
+            i++;
+        }
         //TODO
         //FILL THE ARRAY menuDescription with the descriptions of the menu items
         //return the menuDescription back to the calling method

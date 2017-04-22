@@ -10,6 +10,10 @@ public class Product
 
     public Product(String aSku, String aType, String aDesc, double aPrice)
     {
+        this.sku = sku;
+        this.type = aType;
+        this.description = aDesc;
+        this.price = aPrice;
         //TODO
         //COPY VARIABLES TO LOCAL CLASS VARIABLES
     }

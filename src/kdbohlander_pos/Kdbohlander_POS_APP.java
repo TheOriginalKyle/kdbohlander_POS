@@ -11,13 +11,13 @@ public class Kdbohlander_POS_APP
         String firstName = Validator.getValidFirstName(JOptionPane.showInputDialog("Enter First Name"));
 
         //Do the same for the other variables
-        String lastName = "";
-        String street = "";
-        String city = "";
-        String state = "";
-        String zip = "";
-        String phone = "";
-        String membership = "";
+        String lastName = Validator.getValidLastName(JOptionPane.showInputDialog("Enter Last Name"));
+        String street = Validator.getValidStreet(JOptionPane.showInputDialog("Enter Street"));
+        String city = Validator.getValidCity(JOptionPane.showInputDialog("Enter City"));
+        String state = Validator.getValidState(JOptionPane.showInputDialog("Enter State"));
+        String zip = Validator.getValidZip(JOptionPane.showInputDialog("Enter Zip"));
+        String phone = Validator.getValidPhone(JOptionPane.showInputDialog("Enter Phone"));
+        String membership = Validator.getValidMembership(JOptionPane.showInputDialog("Enter Membership"));
 
         //CREATE A NEW CUSTOMER OBJECT (uncomment line below)
         Customer customer = new Customer(firstName, lastName, street, city, state, zip, phone, membership);
