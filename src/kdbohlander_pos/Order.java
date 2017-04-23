@@ -5,10 +5,8 @@ import java.util.Arrays;
 
 public class Order
 {
-    //class variables
-
     private Customer orderCustomer;
-    private Clerk orderClerk;
+    public static Clerk orderClerk;
     private Product[] orderProduct;
     private int[] orderQuantity;
 
@@ -37,7 +35,7 @@ public class Order
     }
 
     //setter to assign clerk
-    public void setOrderClerk(Clerk aClerk)
+    public static void setOrderClerk(Clerk aClerk)
     {
         orderClerk = aClerk;
     }
@@ -91,7 +89,8 @@ public class Order
 
         String result = "";
 
-        result += "CASHIER @ REGISTER\n " + orderClerk.getFirstName() + " " + orderClerk.getLastName() + " @ " + orderClerk.getRegisterNbr() + "\n\n";
+        result += "CASHIER @ REGISTER\n " + orderClerk.getFirstName(orderClerk) + " " + orderClerk.getLastName() + " @ " + orderClerk.getRegisterNbr() + "\n\n";
+        result += "Phone" + " " + orderClerk.getEmployeeID();
 
         //TODO
         //ADD REST OF SUMMARY TO RESULT

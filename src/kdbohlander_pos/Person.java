@@ -13,6 +13,13 @@ public class Person
 
     public Person(String aFirstName, String aLastName, String anAddress, String aCity, String aState, String aZip, String aPhone)
     {
+        this.firstName = aFirstName;
+        this.lastName = aLastName;
+        this.address = anAddress;
+        this.city = aCity;
+        this.state = aState;
+        this.zip = aZip;
+        this.phone = aPhone;
         //TODO
         //COPY VARIABLES INTO LOCAL CLASS VARIABLES
     }
@@ -50,7 +57,7 @@ public class Person
         this.city = city;
     }
 
-    public String getFirstName()
+    public String getFirstName(Person person)
     {
         return firstName;
     }

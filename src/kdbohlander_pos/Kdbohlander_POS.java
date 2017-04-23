@@ -1,10 +1,14 @@
 package kdbohlander_pos;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Kdbohlander_POS
 {
 
-    private Clerk[] arrClerks;
+    private static Clerk[] arrClerks;
     private Order jvzOrder;
+    public static Clerk theClerk;
 
     //CLASS CONSTRUCTOR
     public Kdbohlander_POS()
@@ -42,9 +46,8 @@ public class Kdbohlander_POS
         //TODO 
         //ADD THESE CLERKS TO THE CLERK ARRAY
     }
-
     //METHOD TO SET A CLERK TO THE ORDER
-    public void setClerk()
+    public static void setClerk()
     {
         //TODO
         //Randomly assign a clerk to order using .setOrderClerk 
@@ -52,9 +55,11 @@ public class Kdbohlander_POS
         //GenErate a random number between 0 and 2
         //use the number as the index of the clerk array 
         //add your code below
-
         //pass the clerk object to the setOrderClerk method OF THE JVZORDER 
         //add your code below
+        int i = ThreadLocalRandom.current().nextInt(0, 3); //Went with this instead it seemed easier ¯\_(ツ)_/¯ 
+        theClerk = arrClerks[i];
+        Order.setOrderClerk(theClerk);
     }
 
     //RETURN RECEIPT
