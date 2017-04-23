@@ -89,7 +89,7 @@ public class Order
 
         String result = "";
 
-        result += "CASHIER @ REGISTER\n " + orderClerk.getFirstName(orderClerk) + " " + orderClerk.getLastName() + " @ " + orderClerk.getRegisterNbr() + "\n\n";
+        result += "CASHIER @ REGISTER\n " + orderClerk.getFirstName() + " " + orderClerk.getLastName() + " @ " + orderClerk.getRegisterNbr() + "\n\n";
         result += "Phone" + " " + orderClerk.getEmployeeID();
 
         //TODO

@@ -47,7 +47,7 @@ public class Kdbohlander_POS_APP
             Product product = menu.getMenu()[intCode];
 
             //PROMPT USER TO ENTER QUANTITY
-            String qty = JOptionPane.showInputDialog("Enter Quantity");
+            String qty = Validator.getValidQuantity(JOptionPane.showInputDialog("Enter Quantity"));
 
             //ADD PRODUCT AND QUANTITY TO ORDER
             order.setOrderProduct(product, Integer.parseInt(qty));

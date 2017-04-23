@@ -57,7 +57,7 @@ public class Person
         this.city = city;
     }
 
-    public String getFirstName(Person person)
+    public String getFirstName()
     {
         return firstName;
     }
