@@ -17,7 +17,7 @@ public class JavaZonApp
         String phone = Validator.getValidPhone(JOptionPane.showInputDialog("Enter Phone Ex. '(123)123-1234'"));
         String membership = Validator.getValidMembership(JOptionPane.showInputDialog("Enter Membership Ex. 'MT1234'"));
 
-        //CREATE A NEW CUSTOMER OBJECT (uncomment line below)
+        //CREATE A NEW CUSTOMER OBJECT
         Customer customer = new Customer(firstName, lastName, street, city, state, zip, phone, membership);
 
         //CREATE NEW ORDER OBJECT
