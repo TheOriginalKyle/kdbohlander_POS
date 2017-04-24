@@ -17,5 +17,5 @@ I've also included the documentation I've been givin for the project and will la
 * Example_ProjectSource.pdf - An example of the paper deliverable. We're basically expected to just replace "Homer Simpson" with our information.   
 
 ### TODO
-* Actually complete project
+* ~~Actually complete project~~
 * Add Deliverables
