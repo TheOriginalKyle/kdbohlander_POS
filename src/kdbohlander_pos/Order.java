@@ -5,8 +5,9 @@ import java.util.Arrays;
 
 public class Order
 {
+
     private Customer orderCustomer;
-    public static Clerk orderClerk;
+    public Clerk orderClerk;
     private Product[] orderProduct;
     private int[] orderQuantity;
 
@@ -35,54 +36,53 @@ public class Order
     }
 
     //setter to assign clerk
-    public static void setOrderClerk(Clerk aClerk)
+    public void setOrderClerk(Clerk aClerk)
     {
         orderClerk = aClerk;
     }
 
+    //Adds the products and their quantities to the order.
     public void setOrderProduct(Product aProduct, int aQty)
     {
-        //TODO
-        //EACH TIME A USER ADDS A PRODUCT TO THE ORDER
-        //IF IT IS THE FIRST PRODUCT ADDED TO THE ORDER THEN
-        //STORE IT IN THE orderProduct ARRAY
-
-        //IF MORE PRODUCTS ARE ADDED, YOU HAVE TO RESIZE THE 
-        //orderProduct and orderQuantity arrays.
-        //the way to do that is to the the Arrays.copyOf method or
-        //to create temp array for each
-        //copy the current arrays into temp arrays
-        //resize the current arrays
-        //put back the temp arrays in the current arrays
-        //in the newly sized arrays
-        //add the new product
-        //add the quantity
+        if (productCount < orderProduct.length && productCount < orderQuantity.length) //If the new product doesn't exceed Array size add it in.
+        {
+            orderProduct[productCount] = aProduct;
+            orderQuantity[productCount] = aQty;
+            productCount++;
+        }
+        else //If its not the first product, resize the array and then add it in.
+        {
+            orderProduct = Arrays.copyOf(orderProduct, (orderProduct.length + 1));
+            orderQuantity = Arrays.copyOf(orderQuantity, (orderQuantity.length + 1));
+            orderProduct[productCount] = aProduct;
+            orderQuantity[productCount] = aQty;
+            productCount++;
+        }
     }
 
+    //Does what you think it does.
     public void calcSubtotal()
     {
-        //TODO
-        //FOR LOOP THROUGH THE orderProduct array
-        //get the price
-        //get the quantity from the orderQuantity array
-        //STORE IT IN subtotal VARIABLE
+        for (int i = 0; i < orderProduct.length; i++)
+        {
+            subtotal += (orderQuantity[i] * orderProduct[i].getPrice());
+        }
 
     }
 
+    //Does what you think it does.
     public void calcTax()
     {
-        //TODO
-        //CALCULATE THE TAX
-        //STORE IT IN tax VARIABLE
+        tax = (subtotal * TAX_RATE);
     }
 
+    //Does what you think it does.
     public void calcTotal()
     {
-        //TODO
-        //CALCULATE THE TOTAL
-        //STORE IT IN total VARIABLE
+        total = (subtotal + tax);
     }
 
+    //This is basically everything in the receipt I don't see why we broke it up into three classes. I normally would've gave it its own class or shoved everything in here.
     public String toString()
     {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
@@ -90,13 +90,13 @@ public class Order
         String result = "";
 
         result += "CASHIER @ REGISTER\n " + orderClerk.getFirstName() + " " + orderClerk.getLastName() + " @ " + orderClerk.getRegisterNbr() + "\n\n";
-        result += "Phone" + " " + orderClerk.getEmployeeID();
-
-        //TODO
-        //ADD REST OF SUMMARY TO RESULT
-        //SEE LINE ABOVE FOR EXAMPLE OF HOW TO GET INFORMATION FROM 
-        //OTHER OBJECTS THAT ARE AVAILABLE WITHIN THE ORDER CLASS
-        //SEE PROJECT HANDOUT TO GET IDEA OF HOW YOUR SUMMARY SHOULD LOOK LIKE
+        result += "Customer Info\n" + orderCustomer.toString() + "\n";
+        result += "NUMBER OF ITEMS SOLD = " + getNumberItemsSold() + "\n\n";
+        result += getReceiptBreakDown();
+        result += "TOTALS\n";
+        result += "Subtotal: " + nf.format(subtotal) + "\n";
+        result += "Tax: " + nf.format(tax) + "\n";
+        result += "Total: " + nf.format(total) + "\n";
         return result;
     }
 
@@ -112,4 +112,20 @@ public class Order
         return totalQty;
     }
 
+    //I seperated this from the toString() method for readability.
+    public String getReceiptBreakDown()
+    {
+        NumberFormat nf = NumberFormat.getCurrencyInstance();
+        String BreakDown = "";
+
+        for (int i = 0; i < orderProduct.length; i++)
+        {
+            BreakDown += orderQuantity[i] + " " + "@ ";
+            BreakDown += nf.format(orderProduct[i].getPrice()) + " = " + nf.format((orderProduct[i].getPrice() * orderQuantity[i])) + "\n";
+            BreakDown += "    " + orderProduct[i].getDescription();
+            BreakDown += "\n\n";
+        }
+
+        return BreakDown;
+    }
 }

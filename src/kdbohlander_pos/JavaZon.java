@@ -1,17 +1,15 @@
 package kdbohlander_pos;
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Kdbohlander_POS
+public class JavaZon
 {
 
-    private static Clerk[] arrClerks;
+    private Clerk[] arrClerks;
     private Order jvzOrder;
-    public static Clerk theClerk;
 
     //CLASS CONSTRUCTOR
-    public Kdbohlander_POS()
+    public JavaZon()
     {
         loadClerkList();
     }
@@ -25,11 +23,9 @@ public class Kdbohlander_POS
     //PROCESS ORDER
     public void processOrder()
     {
-        //TODO CALL JVZ ORDER METHODS TO PERFORM CALCULATIONS
-        //SUBTOTAL
-        //TAX
-        //TOTAL
-
+        jvzOrder.calcSubtotal();
+        jvzOrder.calcTax();
+        jvzOrder.calcTotal();
     }
 
     //METHOD TO LOAD CLERKS
@@ -42,24 +38,13 @@ public class Kdbohlander_POS
         arrClerks[1] = bookClerk;
         Clerk gameClerk = new Clerk("EMP300", 3, "Lisa", "Simpson", "767 North Holt", "Spingfield", "CA", "98765", "909-987-3333");
         arrClerks[2] = gameClerk;
-
-        //TODO 
-        //ADD THESE CLERKS TO THE CLERK ARRAY
     }
+
     //METHOD TO SET A CLERK TO THE ORDER
-    public static void setClerk()
+    public void setClerk()
     {
-        //TODO
-        //Randomly assign a clerk to order using .setOrderClerk 
-        //(see your textbook to see how to use the Random class to generate random numbers)
-        //GenErate a random number between 0 and 2
-        //use the number as the index of the clerk array 
-        //add your code below
-        //pass the clerk object to the setOrderClerk method OF THE JVZORDER 
-        //add your code below
         int i = ThreadLocalRandom.current().nextInt(0, 3); //Went with this instead it seemed easier ¯\_(ツ)_/¯ 
-        theClerk = arrClerks[i];
-        Order.setOrderClerk(theClerk);
+        jvzOrder.setOrderClerk(arrClerks[i]); //Note ThreadLocalRandom depends upon Java 1.7 or later so yea hopefully you have that.
     }
 
     //RETURN RECEIPT
@@ -73,7 +58,7 @@ public class Kdbohlander_POS
         result += "MONTCLAIR, CA, 91763\n";
         result += "  (909)345-9876\n\n";
 
-        result += jvzOrder.toString();
+        result += jvzOrder.toString(); //This is in the Order class it DOES NOT convert jvzOrder to a string
 
         return result;
 

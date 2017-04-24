@@ -11,6 +11,7 @@ public class Person
     private String state;
     private String zip;
 
+    //Constructor
     public Person(String aFirstName, String aLastName, String anAddress, String aCity, String aState, String aZip, String aPhone)
     {
         this.firstName = aFirstName;
@@ -20,10 +21,9 @@ public class Person
         this.state = aState;
         this.zip = aZip;
         this.phone = aPhone;
-        //TODO
-        //COPY VARIABLES INTO LOCAL CLASS VARIABLES
     }
 
+    //This is part of the receipt.
     public String toString()
     {
         String result = "";
@@ -37,6 +37,7 @@ public class Person
         return result;
     }
 
+    //Most of these were used at some point. I'm only leaving it in cause it doesn't really get in the way and its immediatly obvious what it does.
     public String getAddress()
     {
         return address;

@@ -2,22 +2,20 @@ package kdbohlander_pos;
 
 import javax.swing.JOptionPane;
 
-public class Kdbohlander_POS_APP
+public class JavaZonApp
 {
 
     public static void main(String[] args)
     {
         //COLLECT INFORMATION USING JOPTIONPANE
         String firstName = Validator.getValidFirstName(JOptionPane.showInputDialog("Enter First Name"));
-
-        //Do the same for the other variables
         String lastName = Validator.getValidLastName(JOptionPane.showInputDialog("Enter Last Name"));
-        String street = Validator.getValidStreet(JOptionPane.showInputDialog("Enter Street"));
+        String street = Validator.getValidStreet(JOptionPane.showInputDialog("Enter Street Ex. '123 EastFake Ave'"));
         String city = Validator.getValidCity(JOptionPane.showInputDialog("Enter City"));
-        String state = Validator.getValidState(JOptionPane.showInputDialog("Enter State"));
-        String zip = Validator.getValidZip(JOptionPane.showInputDialog("Enter Zip"));
-        String phone = Validator.getValidPhone(JOptionPane.showInputDialog("Enter Phone"));
-        String membership = Validator.getValidMembership(JOptionPane.showInputDialog("Enter Membership"));
+        String state = Validator.getValidState(JOptionPane.showInputDialog("Enter State Ex. 'CA'"));
+        String zip = Validator.getValidZip(JOptionPane.showInputDialog("Enter Zip Ex. '90210'"));
+        String phone = Validator.getValidPhone(JOptionPane.showInputDialog("Enter Phone Ex. '(123)123-1234'"));
+        String membership = Validator.getValidMembership(JOptionPane.showInputDialog("Enter Membership Ex. 'MT1234'"));
 
         //CREATE A NEW CUSTOMER OBJECT (uncomment line below)
         Customer customer = new Customer(firstName, lastName, street, city, state, zip, phone, membership);
@@ -61,7 +59,7 @@ public class Kdbohlander_POS_APP
                 null) != JOptionPane.NO_OPTION);
 
         //CREATE A NEW JAVAZON STORE
-        Kdbohlander_POS jz = new Kdbohlander_POS();
+        JavaZon jz = new JavaZon();
 
         //ADD THE ORDER TO THE STORE
         jz.setOrder(order);

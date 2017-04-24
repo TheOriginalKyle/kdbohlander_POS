@@ -8,6 +8,7 @@ public class Menu
     private Product menuItems[];
     public Product Product;
 
+    //This is everything on the menu with Names, Categories (I don't see why theyre unused), Descriptions and prices.
     public Menu()
     {
         menuItems = new Product[9];
@@ -44,7 +45,7 @@ public class Menu
     }
 
     //method to return an array of descriptions
-    int i = 0;
+    int i = 0; //I put this outside the method so the method could be executed more than once.
 
     public String[] getMenuDescriptions()
     {
@@ -54,9 +55,6 @@ public class Menu
             menuDescription[i] = menuItems[i].getDescription();
             i++;
         }
-        //TODO
-        //FILL THE ARRAY menuDescription with the descriptions of the menu items
-        //return the menuDescription back to the calling method
         return menuDescription;
 
     }

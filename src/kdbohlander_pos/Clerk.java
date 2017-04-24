@@ -22,7 +22,7 @@ public class Clerk extends Person
     {
         String result = "";
 
-       //result += super.getFirstName();
+        //result += super.getFirstName();
         result += "EmployeeID:\t" + employeeID + "\n";
 
         return result;
