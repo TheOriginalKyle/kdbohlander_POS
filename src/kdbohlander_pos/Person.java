@@ -30,14 +30,14 @@ public class Person
 
         result += "Name: " + firstName + " " + lastName + "\n";
         result += "Phone: " + phone + "\n\n";
-        result += "Address\n";
+        result += "ADDRESS\n";
         result += address + "\n";
         result += city + ", " + state + ", " + zip + "\n";
 
         return result;
     }
 
-    //Most of these were used at some point. I'm only leaving it in cause it doesn't really get in the way and its immediatly obvious what it does.
+    //Most of these were probably used at some point. I'm only leaving it in cause it doesn't really get in the way and its immediatly obvious what it does.
     public String getAddress()
     {
         return address;

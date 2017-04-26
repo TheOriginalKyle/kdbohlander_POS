@@ -10,12 +10,12 @@ public class JavaZonApp
         //COLLECT INFORMATION USING JOPTIONPANE
         String firstName = Validator.getValidFirstName(JOptionPane.showInputDialog("Enter First Name"));
         String lastName = Validator.getValidLastName(JOptionPane.showInputDialog("Enter Last Name"));
-        String street = Validator.getValidStreet(JOptionPane.showInputDialog("Enter Street Ex. '123 EastFake Ave'"));
+        String street = Validator.getValidStreet(JOptionPane.showInputDialog("Enter Street"));
         String city = Validator.getValidCity(JOptionPane.showInputDialog("Enter City"));
-        String state = Validator.getValidState(JOptionPane.showInputDialog("Enter State Ex. 'CA'"));
-        String zip = Validator.getValidZip(JOptionPane.showInputDialog("Enter Zip Ex. '90210'"));
-        String phone = Validator.getValidPhone(JOptionPane.showInputDialog("Enter Phone Ex. '(123)123-1234'"));
-        String membership = Validator.getValidMembership(JOptionPane.showInputDialog("Enter Membership Ex. 'MT1234'"));
+        String state = Validator.getValidState(JOptionPane.showInputDialog("Enter State 'CA'"));
+        String zip = Validator.getValidZip(JOptionPane.showInputDialog("Enter Zip '90210'"));
+        String phone = Validator.getValidPhone(JOptionPane.showInputDialog("Enter Phone '(123)123-1234'"));
+        String membership = Validator.getValidMembership(JOptionPane.showInputDialog("Enter Membership 'MT1234'"));
 
         //CREATE A NEW CUSTOMER OBJECT
         Customer customer = new Customer(firstName, lastName, street, city, state, zip, phone, membership);

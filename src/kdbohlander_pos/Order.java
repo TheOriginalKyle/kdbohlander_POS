@@ -90,7 +90,7 @@ public class Order
         String result = "";
 
         result += "CASHIER @ REGISTER\n " + orderClerk.getFirstName() + " " + orderClerk.getLastName() + " @ " + orderClerk.getRegisterNbr() + "\n\n";
-        result += "Customer Info\n" + orderCustomer.toString() + "\n";
+        result += "CUSTOMER INFO\n" + orderCustomer.toString() + "\n";
         result += "NUMBER OF ITEMS SOLD = " + getNumberItemsSold() + "\n\n";
         result += getReceiptBreakDown();
         result += "TOTALS\n";
